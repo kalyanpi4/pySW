@@ -24,7 +24,7 @@ pip install pySW
 Dependencies:
 1. [pywin32](https://pypi.org/project/pywin32/)
 2. [Numpy](https://numpy.org/)
-3. [pandas](https://pandas.pydata.org/)
+3. [Pandas](https://pandas.pydata.org/)
 
 You can install the dependencies by running the following commands in the command prompt. If you have installed the open-source Anaconda distribution for Python, please check if the libaries are already installed.
 ```sh
