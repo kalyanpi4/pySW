@@ -160,7 +160,7 @@ class commSW:
                 data[eqMgr.Equation(i).split('"')[1]] = i
             #
         #
-        if len(data.keys) == 0:
+        if len(data.keys()) == 0:
             raise KeyError("There are not any 'Global Variables' present in the currently active Solidworks document.");
         else:
             return data;
