@@ -48,6 +48,6 @@ for i in range(len(design)):
         SW.updatePrt();
         SW.saveAssy(analysisDir+'\\'+str(i), str(i), '.SLDPRT');
 
-
+SW.shutSW();
 df = pd.DataFrame(design, columns = variables)
 df.to_csv(psutil.os.getcwd()+'\\params.csv')
