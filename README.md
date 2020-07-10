@@ -1,3 +1,4 @@
+https://zenodo.org/badge/237943198.svg
 # pySW
 A Wrapper Around Solidworks VBA API
 
