@@ -1,4 +1,4 @@
-<a href="https://zenodo.org/badge/latestdoi/237943198"><img src="https://zenodo.org/badge/237943198.svg" alt="DOI"></a>
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3938847.svg)](https://doi.org/10.5281/zenodo.3938847)
 # pySW
 A Wrapper Around Solidworks VBA API
 
