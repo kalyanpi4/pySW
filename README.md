@@ -1,5 +1,5 @@
 # pySW
-A Wrapper Around Solidworks VBA API
+A Wrapper around Solidworks VBA API for Automating Geometry Modifications for Python-based Optimization and Design Space Exploration
 
 pySW is simply a Python wrapper around Solidworks built-in VBA API for automated modifications to Solidworks assemblies and parts.
 
