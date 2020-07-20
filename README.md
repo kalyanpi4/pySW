@@ -1,5 +1,6 @@
-# pySW
 [![DOI](https://zenodo.org/badge/237943198.svg)](https://zenodo.org/badge/latestdoi/237943198)
+
+# pySW
 
 A Wrapper around Solidworks VBA API for Automating Geometry Modifications for Python-based Optimization and Design Space Exploration
 
