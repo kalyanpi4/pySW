@@ -22,16 +22,19 @@ import subprocess as sb
 import win32com.client
 import pythoncom
 import os
+import warnings
+
 #
 class commSW:
     def __init__(self):
         pass;
     #
-    def startSW(self, *args):
+    def startSW(self, version=None, folder=None):
         #                                                                     #
         # Function to start Solidworks from Python.                           #
         #                                                                     #
-        # Accepts an optional argument: the year of version of Solidworks.    #
+        # Accepts two optional arguments: version and folder                  #
+        #       folder: Folder to check. Must contain SLDWORKS.exe            #
         #                                                                     #
         # If you have only one version of Solidworks on your computer, you do #
         # not need to provide this input.                                     #
@@ -40,14 +43,30 @@ class commSW:
         # system and you want to start Solidworks 2020 the function you call  #
         # should look like this: startSW(2020)                                #
         #                                                                     #
-        if not args:
-            SW_PROCESS_NAME = r'C:/Program Files/SOLIDWORKS Corp/SOLIDWORKS/SLDWORKS.exe';
-            sb.Popen(SW_PROCESS_NAME);
-        else:
-            year= int(args[0][-1]);
-            SW_PROCESS_NAME = "SldWorks.Application.%d" % (20+(year-2));
-            win32com.client.Dispatch(SW_PROCESS_NAME);
-    #
+        if not folder and not version:
+            __files = [r"C:/Program Files/SOLIDWORKS Corp/SOLIDWORKS/SLDWORKS.exe",
+                       r"C:/Program Files/Solidworks/SOLIDWORKS/SLDWORKS.exe"]
+            for file in __files:
+                if os.path.isfile(file):
+                    sb.Popen(file)
+                    return
+            
+        warnings.warn("SLDWORKS.exe not found on expected directories\
+                        Using fallback system currently incompatible \
+                        with some versions of Python",
+                        DeprecationWarning)
+        try:
+            if not version and folder:
+                SW_PROCESS_NAME = folder + 'SLDWORKS.exe';
+                sb.Popen(SW_PROCESS_NAME);
+            if version:
+                year= int(version[0][-1]);
+                SW_PROCESS_NAME = "SldWorks.Application.%d" % (20+(year-2));
+                win32com.client.Dispatch(SW_PROCESS_NAME);
+        except Exception as e:
+            print(e)
+            
+
     def shutSW(self):
         #                                                                     #
         # Function to close Solidworks from Python.                           #
